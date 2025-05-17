@@ -11,13 +11,13 @@ import java.util.List;
 @Getter
 public class CafeKiosk {
 
-    private final List<Beverage> beverages = new ArrayList<Beverage>();
+    private final List<Beverage> beverages = new ArrayList<>();
 
     public void add (Beverage beverage) {
         beverages.add(beverage);
     }
 
-    public void removee (Beverage beverage) {
+    public void remove (Beverage beverage) {
         beverages.remove(beverage);
     }
 
