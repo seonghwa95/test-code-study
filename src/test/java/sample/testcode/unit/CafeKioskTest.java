@@ -84,7 +84,20 @@ class CafeKioskTest {
         assertThat(cafeKiosk.getBeverages()).isEmpty();
     }
 
-    @DisplayName("주문을 하면 주문이 생성된다.")
+    @Test
+    void calculateTotalPriceTest() {
+        CafeKiosk cafeKiosk = new CafeKiosk();
+        Americano americano = new Americano();
+        Latte latte = new Latte();
+
+        cafeKiosk.add(americano);
+        cafeKiosk.add(latte);
+
+        int totalPrice = cafeKiosk.calculateTotalPrice();
+
+        assertThat(totalPrice).isEqualTo(8500);
+    }
+
     @Test
     void createOrderOpenTimeTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
