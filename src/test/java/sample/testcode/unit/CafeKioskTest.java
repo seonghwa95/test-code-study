@@ -1,5 +1,6 @@
 package sample.testcode.unit;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import sample.testcode.unit.beverage.Americano;
 import sample.testcode.unit.beverage.Latte;
@@ -22,6 +23,7 @@ class CafeKioskTest {
         System.out.println(">>> 담긴 음료 : " + cafeKiosk.getBeverages().get(0).getName());
     }
 
+    @DisplayName("음료 1개를 추가하면 주문목록에 담긴다.")
     @Test
     void addTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
@@ -32,6 +34,7 @@ class CafeKioskTest {
         assertThat(cafeKiosk.getBeverages().get(0).getPrice()).isEqualTo(4000);
     }
 
+    @DisplayName("음료를 입력한 수량만큼 추가하면 주문목록에 담긴다.")
     @Test
     void addSeveralTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
@@ -41,6 +44,8 @@ class CafeKioskTest {
         assertThat(cafeKiosk.getBeverages().get(0).getName()).isEqualTo("아메리카노");
         assertThat(cafeKiosk.getBeverages().get(1).getName()).isEqualTo("아메리카노");
     }
+
+    @DisplayName("음료 수량을 0개 이하 추가하면 예외 메세지가 나온다.")
     @Test
     void addZeroTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
@@ -50,6 +55,7 @@ class CafeKioskTest {
                 .hasMessage("음료는 1잔 이상 주문하실 수 있습니다.");
     }
 
+    @DisplayName("추가했던 음료를 지우면 주문목록에서 삭제된다.")
     @Test
     void removeTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
@@ -62,6 +68,7 @@ class CafeKioskTest {
         assertThat(cafeKiosk.getBeverages()).isEmpty();
     }
 
+    @DisplayName("추가했던 음료의 주문목록을 한번에 지울 수 있다.")
     @Test
     void clearTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
@@ -77,6 +84,7 @@ class CafeKioskTest {
         assertThat(cafeKiosk.getBeverages()).isEmpty();
     }
 
+    @DisplayName("주문을 하면 주문이 생성된다.")
     @Test
     void createOrderOpenTimeTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
@@ -89,6 +97,7 @@ class CafeKioskTest {
         assertThat(order.getBeverages().get(0).getName()).isEqualTo("아메리카노");
     }
 
+    @DisplayName("영업 시작 시간전에는 주문을 생성할 수 없다.")
     @Test
     void createOrderCloseTimeTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
