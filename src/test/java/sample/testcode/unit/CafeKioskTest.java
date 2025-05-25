@@ -84,6 +84,7 @@ class CafeKioskTest {
         assertThat(cafeKiosk.getBeverages()).isEmpty();
     }
 
+    @DisplayName("주문목록에 있는 음료들 가격의 총합을 구할 수 있다.")
     @Test
     void calculateTotalPriceTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
@@ -98,6 +99,7 @@ class CafeKioskTest {
         assertThat(totalPrice).isEqualTo(8500);
     }
 
+    @DisplayName("영업 시간내에는 주문을 생성할 수 있다.")
     @Test
     void createOrderOpenTimeTest() {
         CafeKiosk cafeKiosk = new CafeKiosk();
