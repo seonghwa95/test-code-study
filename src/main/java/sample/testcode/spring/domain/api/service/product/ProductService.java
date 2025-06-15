@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import sample.testcode.spring.domain.api.service.product.response.ProductResponse;
 import sample.testcode.spring.domain.product.Product;
 import sample.testcode.spring.domain.product.ProductRepository;
-import sample.testcode.spring.domain.product.ProductSellingType;
+import sample.testcode.spring.domain.product.ProductSellingStatus;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +17,7 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public List<ProductResponse> getSellingProducts() {
-        List<Product> products = productRepository.findByProductSellingTypeIn(ProductSellingType.forDisplay());
+        List<Product> products = productRepository.findByProductSellingStatusIn(ProductSellingStatus.forDisplay());
 
         return products.stream()
                 .map(ProductResponse::of)
