@@ -1,4 +1,4 @@
-package sample.testcode.spring.domain.api.controller;
+package sample.testcode.spring.domain.api.controller.product;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
